@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Fair & Career Day 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">EDU FAIR <span>2026</span></div>
+        <a href="admin.php">Admin Panel</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <p class="label"> OFFICIAL INVITATION</p>
+        <h1>EDU FAIR <span>&amp;</span><br>CAREER DAY 2026</h1>
+        <p class="theme">"Connecting Competence to Future: Bekerja, Melanjutkan, Berwirausaha"</p>
+        
+        <div class="line"></div>
+        
+        <p class="label">KEPADA YTH.</p>
+        <h2 id="display-nama">Tamu Undangan</h2>
+        <div style="margin-top: 20px;">
+            <a href="#rsvp" class="btn">Konfirmasi Kehadiran</a>
+        </div>
+    </section>
+
+    <!-- Section 04: Lokasi & Maps -->
+    <section class="section">
+        <p class="label"> LOKASI</p>
+        <h2>Temukan Lokasi Kami</h2>
+        
+       <div style="background: white; padding: 25px; border-radius: 6px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+            <p style="margin-bottom: 8px;"><strong>Tanggal:</strong> 25 November 2026</p>
+            <p><strong>Waktu:</strong> Pukul 07:30 - 15:00</p>
+            <p><strong>Tempat:</strong> Lapangan Utama SMKN 6 Tangerang Selatan</p>
+            <p><strong>Alamat:</strong> Jl. Magnolia VI No.6, Jelupang, Kec. Serpong Utara, Kota Tangerang Selatan, Banten</p>
+        </div>
+
+        <iframe
+            src="https://www.google.com/maps?q=SMKN%206%20Kota%20Tangerang%20Selatan&output=embed"
+            width="100%"
+            height="350"
+            style="border:0; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+            loading="lazy">
+        </iframe>
+    </section>
+
+    <!-- Section 03: Rundown / Agenda -->
+    <section class="section schedule">
+        <p class="label"> RUNDOWN</p>
+        <h2>Susunan Acara</h2>
+
+        <div class="agenda">
+            <p><strong>07.30 – 08.00</strong> &nbsp;|&nbsp; Registrasi &amp; Persiapan Booth Peserta</p>
+            <p><strong>08.00 – 08.45</strong> &nbsp;|&nbsp; Opening Ceremony &amp; Sambutan Kepala Sekolah</p>
+            <p><strong>08.45 – 12.00</strong> &nbsp;|&nbsp; Pameran Pendidikan, Konsultasi Kampus &amp; Bursa Kerja</p>
+            <p><strong>12.00 – 13.00</strong> &nbsp;|&nbsp; ISHOMA (Istirahat, Sholat, Makan)</p>
+            <p><strong>13.00 – 14.30</strong> &nbsp;|&nbsp; Talkshow Alumni Inspiratif &amp; Presentasi Mitra Industri</p>
+            <p><strong>14.30 – 15.00</strong> &nbsp;|&nbsp; Penutupan &amp; Penyerahan Cenderamata</p>
+        </div>
+    </section>
+
+    <!-- Section 02: Tentang Acara / Benefit Booth -->
+    <section class="section">
+        <p class="label"> FASILITAS</p>
+        <h2>Benefit Booth</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Booth Eksklusif 3x3m</h3>
+                <p>Dilengkapi partisi standar pameran, 1 meja, 2 kursi, instalasi listrik, serta akses Wi-Fi khusus peserta.</p>
+            </div>
+            <div class="card">
+                <h3>Sesi Presentasi Utama</h3>
+                <p>Kesempatan memaparkan profil kampus atau lowongan karier perusahaan selama 15 menit di panggung utama.</p>
+            </div>
+            <div class="card">
+                <h3>Konsumsi &amp; Sertifikat</h3>
+                <p>Disediakan snack pagi dan makan siang untuk 2 perwakilan booth serta piagam penghargaan resmi sekolah.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: RSVP -->
+    <section class="section rsvp" id="rsvp">
+        <h2>Konfirmasi Kehadiran</h2>
+        <p class="label" style="text-align: center;">Silahkan isi dan pilih status kehadiran anda</p>
+
+        <form action="simpan_rsvp.php" method="POST">
+            <input type="hidden" name="id_tamu" value="1">
+
+            <label>NAMA PERWAKILAN / TAMU</label>
+            <input type="text" id="input-nama" name="nama_tamu" placeholder="Masukkan nama lengkap Anda" required>
+
+            <label>STATUS KEHADIRAN</label>
+            <select name="status_kehadiran" required>
+                <option value="Hadir (Membuka Booth)">Hadir (Membuka Booth)</option>
+                <option value="Hadir (Tamu Undangan)">Hadir (Tamu Undangan)</option>
+                <option value="Berhalangan Hadir">Berhalangan Hadir</option>
+            </select>
+
+            <button type="submit">Kirim Konfirmasi</button>
+            
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="#" id="btn-wa" target class="btn-wa">
+                    <button type="button">Kirim Konfirmasi via WhatsApp ke Panitia</button>
+                </a>
+            </div>
+        </form> 
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Edu Fair &amp; Career Day. All rights reserved.</p>
+    </footer>
+
+    <!-- Script Dynamic Parameter URL & WhatsApp Link -->
+    <script>
+        // Ambil nama tamu, jika kosong default jadi "Tamu Undangan"
+        const currentNama = namaTamu ? namaTamu : "Tamu Undangan";
+
+        // Buat isi teks pesan secara utuh dulu
+        const rawText = `Halo Panitia Edu Fair & Career Day 2026 SMKN 6 Kota Tangerang Selatan,
+
+        Saya ingin mengonfirmasi kehadiran (RSVP):
+        - Nama: ${currentNama}
+        - Status: Hadir
+
+        Terima kasih.`;
+
+// Masukkan ke href dengan encodeURIComponent agar aman diklik di WhatsApp
+document.getElementById('btn-wa').href = `https://wa.me/6285811431544?text=${encodeURIComponent(rawText)}`;
+    </script>
+
+</body>
+</html>
